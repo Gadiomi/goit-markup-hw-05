@@ -54,6 +54,10 @@ p {
   margin: 0;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /* Header */
 
 .header {
@@ -112,6 +116,7 @@ p {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--defoult-text-color);
+  transition: color 300ms linear;
 }
 
 .header-link:hover,
@@ -470,12 +475,61 @@ p {
   justify-content: center;
 }
 
+.footer-link:is(:hover, :focus) {
+  background-color: #31d0aa;
+}
+
 .footer-icon {
   fill: var(--main-white-color);
 }
 
-.footer-link:is(:hover, :focus) {
-  background-color: #31d0aa;
+/* Backdrop */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 300ms linear, visibility 300ms linear;
+}
+
+.modal {
+  padding: 20px;
+  width: 408px;
+  min-height: 576px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  transition: transform 300ms linear;
+
+  background-color: #fcfcfc;
+  border-radius: 4px;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scaley(0) rotate(-90deg);
+}
+
+.close-btn {
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
+
+  border: 1px solid #999999;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Button */
@@ -563,6 +617,11 @@ p {
   margin-bottom: 0px;
 }
 
+.portfolio-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
 .portfolio-link {
   display: block;
 }
@@ -570,6 +629,27 @@ p {
 .portfolio-link:is(:hover, :focus) {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-link:is(:hover, :focus) .portfolio-top-text {
+  transform: translate(0);
+}
+
+.portfolio-top-text {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  padding: 40px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--main-cloud-color);
+  background-color: var(--main-iris-color);
+  transform: translateY(100%);
+  transition: transform 300ms linear;
 }
 
 .portfolio-title {
