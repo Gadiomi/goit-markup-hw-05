@@ -116,12 +116,26 @@ p {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--defoult-text-color);
-  transition: color 300ms linear;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header-link:hover,
-.header-link:focus {
+.header-link:is(:hover, :focus) {
   color: var(--main-ocean-color);
+}
+
+.underline {
+  position: relative;
+}
+
+.underline::after {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--main-ocean-color);
 }
 
 .header-contacts {
@@ -145,10 +159,10 @@ p {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--main-page-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contacts:hover,
-.contacts:focus {
+.contacts:is(:hover, :focus) {
   color: var(--main-ocean-color);
 }
 
@@ -190,10 +204,10 @@ p {
   min-width: 169px;
   color: var(--main-white-color);
   background-color: var(--main-iris-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-btn:hover,
-.hero-btn:focus {
+.hero-btn:is(:hover, :focus) {
   background-color: var(--main-ocean-color);
 }
 
@@ -350,6 +364,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .soc-icon {
@@ -386,6 +401,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-icon {
@@ -473,6 +489,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link:is(:hover, :focus) {
@@ -578,6 +595,9 @@ p {
 
   color: var(--main-white-color);
   background-color: var(--main-iris-color);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-btn:is(:hover, :focus) {
@@ -591,6 +611,9 @@ p {
 
   color: #4d5ae5;
   background: #f4f4fd;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:is(:hover, :focus) {
@@ -624,6 +647,7 @@ p {
 
 .portfolio-link {
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-link:is(:hover, :focus) {
